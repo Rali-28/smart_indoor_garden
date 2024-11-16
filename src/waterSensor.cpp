@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <waterSensor.h>
 
 #define trigPin 25
