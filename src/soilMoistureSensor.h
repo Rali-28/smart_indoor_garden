@@ -3,4 +3,7 @@
 
 #include <Arduino.h>
 
+void setup_SoilMoistureSensor();
+void SoilMoistureDetection();
+
 #endif
