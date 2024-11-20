@@ -14,6 +14,7 @@ void setup_WaterSensor()
 }
 
 // TODO: Add a functionality for calculating water tank water level, will be used in Blynk app
+// TODO: Will Use Two Water Sensor for Full and Empty
 
 
 void WaterSensorDetection()
