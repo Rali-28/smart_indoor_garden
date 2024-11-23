@@ -26,7 +26,7 @@ void setup_SoilMoistureSensor()
     Serial.begin(115200);
 }
 
-void SoilMoistureDetection()
+void soilMoistureDetection()
 {
     // Gets the analog input sensor value of the soil moisture sensor
     int sensorValue = analogRead(moistureSensor);
@@ -39,21 +39,32 @@ void SoilMoistureDetection()
     Serial.print("Soil moisture percentage: ");
     Serial.print(moisturePercentage);
     Serial.println("%");
+}
 
+void waterPumpFunction()
+{
     // Turns on water pump if moisture gets too low
     if (moisturePercentage < moisturePerLow && waterPumpState == true)
     {
-        digitalWrite(waterPump, LOW); // *Turn pump on (active-LOW relay) 
-        Serial.println("PUMP ON");
-        waterPumpState = false; // update state to pump on
-        delay(1000);
+        pumpOn();
     }
     // Turns off water pump at the right moisture level
     else if (moisturePercentage > moisturePerHigh && waterPumpState == false)
     {
-        digitalWrite(waterPump, HIGH); // *Turn pump off (active-LOW relay)
-        Serial.println("PUMP OFF");
-        waterPumpState = true; // update state to pump off
-        delay(1000);
+        pumpOff();
     }
+}
+
+void pumpOn()
+{
+    digitalWrite(waterPump, LOW); // *Turn pump on (active-LOW relay)
+    Serial.println("PUMP ON");
+    waterPumpState = false; // update state to pump on
+}
+
+void pumpOff()
+{
+    digitalWrite(waterPump, HIGH); // *Turn pump off (active-LOW relay)
+    Serial.println("PUMP OFF");
+    waterPumpState = true; // update state to pump off
 }

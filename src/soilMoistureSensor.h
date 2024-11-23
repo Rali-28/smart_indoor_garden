@@ -4,6 +4,9 @@
 #include <Arduino.h>
 
 void setup_SoilMoistureSensor();
-void SoilMoistureDetection();
+void soilMoistureDetection();
+void waterPumpFunction();
+void pumpOn();
+void pumpOff();
 
 #endif
