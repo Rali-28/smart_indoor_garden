@@ -5,6 +5,8 @@
 
 void setup_WaterSensor();
 void WaterSensorDetection();
+void firstSensor();
+void secondSensor();
 
 
 #endif 
