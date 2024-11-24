@@ -1,6 +1,6 @@
 #include <soilMoistureSensor.h>
 
-#define moistureSensor 27
+#define moistureSensor 34
 // *ACTIVE-LOW RELAY
 #define waterPump 4
 
@@ -26,7 +26,7 @@ void setup_SoilMoistureSensor()
     Serial.begin(115200);
 }
 
-void soilMoistureDetection()
+int soilMoistureDetection()
 {
     // Gets the analog input sensor value of the soil moisture sensor
     int sensorValue = analogRead(moistureSensor);
@@ -39,6 +39,7 @@ void soilMoistureDetection()
     Serial.print("Soil moisture percentage: ");
     Serial.print(moisturePercentage);
     Serial.println("%");
+    return moisturePercentage;
 }
 
 void waterPumpFunction()
